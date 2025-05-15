@@ -285,16 +285,9 @@ void getMonth(int month) {
 
 // 문자열을 permission 배열로 변경
 void atoiPermission(Directory* directory, char* perstr) {
-    char userstr[2] = "";
-    sprintf(userstr, "%c", perstr[0]);
-    char groupstr[2] = "";
-    sprintf(groupstr, "%c", perstr[1]);
-    char otherstr[2] = "";
-    sprintf(otherstr, "%c", perstr[2]);
-
-    int permissionUser = atoi(userstr);
-    int permissionGroup = atoi(groupstr);
-    int permissionOther = atoi(otherstr);
+    int permissionUser = perstr[0] - '0';
+    int permissionGroup = perstr[1] - '0';
+    int permissionOther = perstr[2] - '0';
 
     if(permissionUser >= 4) {
         directory->permission[0] = 1;
